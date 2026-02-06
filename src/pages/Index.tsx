@@ -1,14 +1,22 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import FluidBackground from "@/components/FluidBackground";
 
 const Index = () => {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
-      {/* Fluid shader background */}
-      <FluidBackground />
-
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      <iframe
+        src="/fluid.html"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          border: "none",
+          zIndex: 0,
+        }}
+      />
       <div className="relative z-10 flex flex-col items-center text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -24,7 +32,7 @@ const Index = () => {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="mt-4 text-sm font-medium tracking-[0.3em] text-muted-foreground sm:text-base"
         >
-          MULTIDISCIPLINARY DESIGNER
+          MARKETER
         </motion.p>
 
         <motion.div
