@@ -10,9 +10,8 @@ interface ProjectCardProps {
 const ProjectCard = ({ tag, title, images, className = "" }: ProjectCardProps) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
-      className={`group relative cursor-pointer overflow-hidden rounded-2xl bg-card p-6 ${className}`}
+      className={`group relative cursor-pointer rounded-2xl bg-card p-6 ${className}`}
     >
       <div className="relative z-10">
         <span className="inline-block rounded border border-border px-2 py-0.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -28,7 +27,7 @@ const ProjectCard = ({ tag, title, images, className = "" }: ProjectCardProps) =
             key={i}
             src={img}
             alt={title}
-            className="h-24 w-auto rounded-lg object-contain sm:h-32"
+            className="relative h-24 w-auto rounded-lg object-contain transition-all duration-300 group-hover:z-20 group-hover:scale-[1.5] group-hover:-translate-y-8 group-hover:rotate-6 group-hover:shadow-2xl sm:h-32"
             loading="lazy"
           />
         ))}

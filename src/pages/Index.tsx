@@ -16,7 +16,7 @@ const Index = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-5xl font-extrabold tracking-wider text-foreground sm:text-7xl md:text-8xl"
         >
-          BUNYAN USMAN
+          YUGAN RAJA
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
