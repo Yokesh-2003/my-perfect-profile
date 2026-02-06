@@ -1,19 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import FluidBackground from "@/components/FluidBackground";
 
 const Index = () => {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background">
-      {/* Background image */}
-      <img
-        src={heroBg}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-80"
-      />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-background/30" />
+      {/* Fluid shader background */}
+      <FluidBackground />
 
       <div className="relative z-10 flex flex-col items-center text-center">
         <motion.h1
