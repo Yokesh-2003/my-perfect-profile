@@ -65,7 +65,7 @@ let config = {
     PRESSURE: 0.8,
     PRESSURE_ITERATIONS: 20,
     CURL: 30,
-    SPLAT_RADIUS: 0.25,
+    SPLAT_RADIUS: 0.05,
     SPLAT_FORCE: 6000,
     SHADING: true,
     COLORFUL: true,
@@ -113,7 +113,7 @@ if (!ext.supportLinearFiltering) {
     config.SUNRAYS = false;
 }
 
-startGUI();
+//startGUI();
 
 function getWebGLContext (canvas) {
     const params = { alpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
@@ -1472,11 +1472,17 @@ canvas.addEventListener('mousedown', e => {
 
 canvas.addEventListener('mousemove', e => {
     let pointer = pointers[0];
-    if (!pointer.down) return;
+
     let posX = scaleByPixelRatio(e.offsetX);
     let posY = scaleByPixelRatio(e.offsetY);
+
+    if (!pointer.down) {
+        updatePointerDownData(pointer, -1, posX, posY);
+    }
+
     updatePointerMoveData(pointer, posX, posY);
 });
+
 
 window.addEventListener('mouseup', () => {
     updatePointerUpData(pointers[0]);
@@ -1563,12 +1569,21 @@ function correctDeltaY (delta) {
 }
 
 function generateColor () {
-    let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-    c.r *= 0.15;
-    c.g *= 0.15;
-    c.b *= 0.15;
-    return c;
+    // Gold palette (normalized 0–1 range)
+    const goldMain = { r: 1.0, g: 0.75, b: 0.2 };   // rich gold
+    const goldSoft = { r: 1.0, g: 0.85, b: 0.45 };  // lighter gold highlight
+
+    // Randomly pick between the two for variation
+    const useSoft = Math.random() > 0.5;
+    const color = useSoft ? goldSoft : goldMain;
+
+    return {
+        r: color.r * 0.25,
+        g: color.g * 0.25,
+        b: color.b * 0.25
+    };
 }
+
 
 function HSVtoRGB (h, s, v) {
     let r, g, b, i, f, p, q, t;
