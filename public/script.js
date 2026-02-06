@@ -65,7 +65,7 @@ let config = {
     PRESSURE: 0.8,
     PRESSURE_ITERATIONS: 20,
     CURL: 30,
-    SPLAT_RADIUS: 0.05,
+    SPLAT_RADIUS: 0.12,
     SPLAT_FORCE: 6000,
     SHADING: true,
     COLORFUL: true,
@@ -1569,20 +1569,22 @@ function correctDeltaY (delta) {
 }
 
 function generateColor () {
-    // Gold palette (normalized 0–1 range)
-    const goldMain = { r: 1.0, g: 0.75, b: 0.2 };   // rich gold
-    const goldSoft = { r: 1.0, g: 0.85, b: 0.45 };  // lighter gold highlight
-
-    // Randomly pick between the two for variation
-    const useSoft = Math.random() > 0.5;
-    const color = useSoft ? goldSoft : goldMain;
-
+    // Gold / amber palette
+    const gold = [
+      { r: 1.0, g: 0.78, b: 0.2 },   // warm gold
+      { r: 0.85, g: 0.65, b: 0.15 }, // amber
+      { r: 0.6, g: 0.4, b: 0.1 }     // dark bronze
+    ];
+  
+    const c = gold[Math.floor(Math.random() * gold.length)];
+  
     return {
-        r: color.r * 0.25,
-        g: color.g * 0.25,
-        b: color.b * 0.25
+      r: c.r * 0.12,
+      g: c.g * 0.12,
+      b: c.b * 0.12
     };
-}
+  }
+  
 
 
 function HSVtoRGB (h, s, v) {

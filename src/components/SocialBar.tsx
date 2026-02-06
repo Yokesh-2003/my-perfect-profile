@@ -9,10 +9,10 @@ const BehanceIcon = () => (
 const SocialBar = () => {
   return (
     <div className="flex items-center justify-center gap-4 rounded-full border border-border bg-card/80 px-6 py-3 backdrop-blur-sm">
-      <a href="#" className="text-foreground transition-colors hover:text-muted-foreground" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/yugan-raja-58a342282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" className="text-foreground transition-colors hover:text-muted-foreground" aria-label="LinkedIn">
         <Linkedin className="h-6 w-6" />
       </a>
-      <a href="#" className="text-foreground transition-colors hover:text-muted-foreground" aria-label="Instagram">
+      <a href="https://www.instagram.com/__yygn_rja_?igsh=MXIwb2NlamlxNTVweA==" className="text-foreground transition-colors hover:text-muted-foreground" aria-label="Instagram">
         <Instagram className="h-6 w-6" />
       </a>
       <a href="#" className="text-foreground transition-colors hover:text-muted-foreground" aria-label="Behance">
